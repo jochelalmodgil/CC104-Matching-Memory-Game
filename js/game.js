@@ -43,7 +43,7 @@ function renderBoard() {
             .addClass('memory-card')
             .attr('data-index', index)
             .attr('data-name', card.name)
-            .text(card.content)
+            .text('?')
 
         board.append(cardElement);
     })
