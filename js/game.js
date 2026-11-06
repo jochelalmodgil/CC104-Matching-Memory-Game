@@ -1,10 +1,10 @@
 
 // initialize
-let attempts = 0
-let matches = 0
-let firstCard = null
-let secondCard = null
-let lockBard = false
+let attempts = 0;
+let matches = 0;
+let firstCard = null;
+let secondCard = null;
+let lockBard = false;
 
 let baseCards = [
     {id: 1, name: "gift", content: '🎁'},
@@ -25,18 +25,18 @@ let baseCards = [
 //shuffle yung cards
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1))
-        [array[i], array[j]] = [array[j], array[i]]
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
     return array
 }
 
-let shuffledCards = shuffle([...baseCards])
+let shuffledCards = shuffle([...baseCards]);
 
 
 function renderBoard() {
-    let board = $('#game-board')
-    board.empty()
+    let board = $('#game-board');
+    board.empty();
 
     shuffledCards.forEach((card, index) => {
         let cardElement = $('<div>')
@@ -45,8 +45,32 @@ function renderBoard() {
             .attr('data-name', card.name)
             .text(card.content)
 
-        board.append(cardElement)
+        board.append(cardElement);
     })
 }
 
-renderBoard()
+renderBoard();
+
+
+
+// click cards event   jQuery
+
+$('#game-board').on('click', '.memory-card', function() {
+    let clickedCard = $(this);
+    let index = clickedCard.attr('data-index');
+
+    if (lockBoard || clickedCard.hasClass('flipped') || clickedCard.hasClass('matched')) return
+
+    let cardData = shuffledCards[index];
+    clickedCard.text(cardData.content).addClass('flipped');
+
+    if(!firstCard) {
+        firstCard = {element: clickedCard, name: cardData.name};
+        return;
+
+    }
+
+    secondCard = {element: clickedCard, name: cardData.name}
+    attempts++
+    $('#attemps').text(attempts);
+})
