@@ -1,0 +1,158 @@
+
+/* ==============================
+   CHRISTMAS MEMORY MATCH
+   UI AND LAYOUT DESIGN
+============================== */
+
+/* GENERAL PAGE */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #174b35;
+    color: #fff8e9;
+}
+
+/* MAIN CONTAINER */
+.game-container {
+    width: 90%;
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+/* GAME HEADER */
+.game-header h1 {
+    color: #f5d78e;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.game-header p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* GAME INFORMATION */
+.game-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.info-box {
+    background-color: #ffffff;
+    color: #174b35;
+    width: 160px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #f5d78e;
+}
+
+.info-box h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.info-box p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* MEMORY CARD GRID */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* INDIVIDUAL MEMORY CARDS */
+.memory-card {
+    aspect-ratio: 1 / 1;
+    border: 3px solid #f5d78e;
+    border-radius: 18px;
+    background-color: #ffffff;
+    color: #174b35;
+    font-size: 2.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #6e2029;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* CARD HOVER EFFECT */
+.memory-card:hover:not(:disabled) {
+    transform: translateY(-4px);
+}
+
+/* FACE-UP CARD */
+.memory-card.flipped {
+    background-color: #fff8e9;
+    color: #174b35;
+    border: 3px solid #f5d78e;
+    transform: scale(1.03);
+}
+
+/* MATCHED CARD */
+.memory-card.matched {
+    background-color: #d8edc8;
+    color: #174b35;
+    border: 3px solid #a8d5a0;
+    cursor: default;
+    box-shadow: none;
+}
+
+/* RESTART BUTTON */
+.game-controls {
+    margin-top: 30px;
+}
+
+#restart-btn {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 576px) {
+
+    .game-container {
+        width: 95%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .game-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .game-info {
+        gap: 10px;
+    }
+
+    .info-box {
+        width: 140px;
+        padding: 10px;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .memory-card {
+        font-size: 1.5rem;
+        border-radius: 12px;
+    }
+}
