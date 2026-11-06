@@ -4,7 +4,7 @@ let attempts = 0;
 let matches = 0;
 let firstCard = null;
 let secondCard = null;
-let lockBard = false;
+let lockBoard = false;
 
 let baseCards = [
     {id: 1, name: "gift", content: '🎁'},
@@ -74,3 +74,37 @@ $('#game-board').on('click', '.memory-card', function() {
     attempts++
     $('#attemps').text(attempts);
 })
+
+function checkForMatch() {
+    let isMatch = firstCard.name === secondCard.name;
+
+    if (isMatch) {
+        disableCards();
+    }
+    else {
+        unflipCards();
+    }
+}
+
+function disableCards() {
+    firstCard.element.addClass('matched');
+    secondCard.element.addClass('matched');
+    matches++;
+    $('#matches').text(`${matches} / 6`);
+
+    resetBoardState();
+}
+
+
+function unflipCards() {
+    lockBoard = true;
+    setTimeout(() => {
+        firstCard.element.text('?').removeClass('flipped');
+        secondCard.element.text('?').removeClass('flipped');
+        resetBoardState()
+    }, 1000)
+}
+
+function resetBoardState() {
+    [firstCard, secondCard, lockBoard] = [null, null, false]
+}
