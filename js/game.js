@@ -72,7 +72,9 @@ $('#game-board').on('click', '.memory-card', function() {
 
     secondCard = {element: clickedCard, name: cardData.name}
     attempts++
-    $('#attemps').text(attempts);
+    $('#attempts').text(attempts);
+
+    checkForMatch()
 })
 
 function checkForMatch() {
