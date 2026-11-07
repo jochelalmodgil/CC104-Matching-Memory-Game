@@ -125,14 +125,30 @@ body {
 /* RESTART BUTTON */
 .game-controls {
     margin-top: 30px;
+    text-align: center;
 }
 
 #restart-btn {
-    padding: 12px 25px;
+    padding: 12px 28px;
     border-radius: 25px;
     font-weight: bold;
+    background: #a52a2a;
+    border: 2px solid #f5d78e;
+    color: #fff8e9;
+    box-shadow: 0 4px 0 #6e2029;
+    transition: all 0.2s ease;
 }
 
+#restart-btn:hover {
+    background: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 0 #6e2029;
+}
+
+#restart-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #6e2029;
+}
 /* RESPONSIVE LAYOUT */
 @media (max-width: 576px) {
 
