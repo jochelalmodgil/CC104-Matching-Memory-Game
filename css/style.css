@@ -90,6 +90,9 @@ body {
     cursor: pointer;
     box-shadow: 0 5px 0 #6e2029;
     transition: transform 0.2s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* CARD HOVER EFFECT */
