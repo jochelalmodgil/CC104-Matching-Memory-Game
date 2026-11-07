@@ -189,3 +189,46 @@ body {
     object-fit: contain;
     pointer-events: none;
 }
+
+/* Falling Snow */
+.hidden {
+    display: none;
+}
+
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.snowflakes span {
+    position: absolute;
+    top: -10%;
+    color: white;
+    font-size: 2rem;
+    animation: snowfall linear infinite;
+}
+
+.snowflakes span:nth-child(1) { left: 10%; animation-duration: 8s; }
+.snowflakes span:nth-child(2) { left: 20%; animation-duration: 10s; }
+.snowflakes span:nth-child(3) { left: 35%; animation-duration: 7s; }
+.snowflakes span:nth-child(4) { left: 50%; animation-duration: 9s; }
+.snowflakes span:nth-child(5) { left: 65%; animation-duration: 11s; }
+.snowflakes span:nth-child(6) { left: 75%; animation-duration: 8s; }
+.snowflakes span:nth-child(7) { left: 85%; animation-duration: 10s; }
+.snowflakes span:nth-child(8) { left: 95%; animation-duration: 12s; }
+
+@keyframes snowfall {
+    from {
+        transform: translateY(-100px);
+    }
+
+    to {
+        transform: translateY(110vh);
+    }
+}
