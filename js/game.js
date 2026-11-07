@@ -159,23 +159,24 @@ function disableCards() {
     matches++;
     $('#matches').text(`${matches} / 6`);
 
+    checkWin();
+
+
+    resetBoardState();
+}
+
+function checkWin() {
+
     if (matches === 6) {
 
         $('#snowflakes').removeClass('hidden');
 
-        setTimeout(() => {
+        $('#final-attempts').text(
+            "You won in " + attempts + " attempts!"
+        );
 
-            let playAgain = confirm(
-                `🎉 Congratulations!\n\nYou won in ${attempts} attempts!\n\nPlay again?`
-            );
-
-            if (playAgain) {
-                $('#restart-btn').click();
-            }
-        }, 300);
+        $('#victory-screen').removeClass('hidden');
     }
-
-    resetBoardState();
 }
 
 function unflipCards() {
@@ -205,6 +206,8 @@ function resetBoardState() {
 $('#restart-btn').click(function () {
 
     $('#snowflakes').addClass('hidden');
+
+    $('#victory-screen').addClass('hidden');
     
     attempts = 0;
     matches = 0;
@@ -219,4 +222,10 @@ $('#restart-btn').click(function () {
     shuffledCards = shuffle([...baseCards]);
 
     renderBoard();
+});
+
+// Play Again Button
+
+$('#play-again-btn').click(function () {
+    $('#restart-btn').click();
 });

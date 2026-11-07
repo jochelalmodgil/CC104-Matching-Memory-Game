@@ -248,3 +248,66 @@ body {
         transform: translateY(110vh);
     }
 }
+
+/* VICTORY SCREEN */
+
+.victory-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.victory-box {
+    background: #174b35;
+    border: 4px solid #f5d78e;
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    color: #fff8e9;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 0 25px rgba(245, 215, 142, 0.5);
+    animation: victoryPop 0.5s ease;
+}
+
+.victory-box h1 {
+    color: #f5d78e;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.victory-box p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+#play-again-btn {
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #f5d78e;
+}
+
+@keyframes victoryPop {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* FIX: Hide Victory Screen when needed */
+.victory-screen.hidden {
+    display: none;
+}
